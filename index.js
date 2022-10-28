@@ -100,7 +100,7 @@ function uploadToDrive(name, path) {
     actions.info('File uploaded successfully')
   })
   .catch(e => {
-    actions.error('Upload failed~');
+    actions.error('Upload failed~~~~!!!!!');
     throw e;
   });
 }

@@ -40,6 +40,7 @@ async function main() {
 
     zipItemsByGlob(target, filename)
       .then(() => {
+        action.info('Output to the actions build log ${filename}')
         uploadToDrive(name, filename);
       })
       .catch(e => {

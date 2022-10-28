@@ -29,28 +29,32 @@ async function main() {
 
   const targets = glob.sync(target);
 
-  if (targets.length === 1) {
-    const filename = targets[0].split('/').pop();
-    uploadToDrive(filename, targets[0]);
-  } else {
-    actions.info(`Multiple items detected for glob ${target}`);
-    actions.info('Zipping items...');
+//   if (targets.length === 1) {
+//     const filename = targets[0].split('/').pop();
+//     uploadToDrive(filename, targets[0]);
+//   } else {
+//     actions.info(`Multiple items detected for glob ${target}`);
+//     actions.info('Zipping items...');
 
-    const filename = `${name}.zip`;
+//     const filename = `${name}.zip`;
 
-//     zipItemsByGlob(target, filename)
-//       .then(() => {
-//         action.info('Output to the actions build log ${filename}')
-//         uploadToDrive(name, filename);
-//       })
-//       .catch(e => {
-//         actions.error('Zip failed');
-//         throw e;
-//       });
+// //     zipItemsByGlob(target, filename)
+// //       .then(() => {
+// //         action.info('Output to the actions build log ${filename}')
+// //         uploadToDrive(name, filename);
+// //       })
+// //       .catch(e => {
+// //         actions.error('Zip failed');
+// //         throw e;
+// //       });
 
-      action.info('Output to the actions build log ${filename}')
-      uploadToDrive(name, name);
-  }
+//       action.info('Output to the actions build log ${filename}')
+//       uploadToDrive('README.md', 'README.md');
+//   }
+
+    action.info('Output to the actions build log ${filename}')
+    uploadToDrive('README.md', 'README.md');
+
 }
 
 /**

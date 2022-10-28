@@ -47,13 +47,10 @@ async function main() {
 // //         actions.error('Zip failed');
 // //         throw e;
 // //       });
-
-//       action.info('Output to the actions build log ${filename}')
-//       uploadToDrive('README.md', 'README.md');
 //   }
 
     action.info('Output to the actions build log ${filename}')
-    uploadToDrive('README.md', 'README.md');
+//     uploadToDrive('README.md', 'README.md');
 
 }
 

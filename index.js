@@ -25,9 +25,9 @@ const drive = google.drive({ version: 'v3', auth });
 const driveLink = `https://drive.google.com/drive/folders/${folder}`
 
 async function main() {
-  actions.setOutput(link, driveLink);
+//   actions.setOutput(link, driveLink);
 
-  const targets = glob.sync(target);
+//   const targets = glob.sync(target);
 
 //   if (targets.length === 1) {
 //     const filename = targets[0].split('/').pop();

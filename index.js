@@ -38,15 +38,18 @@ async function main() {
 
     const filename = `${name}.zip`;
 
-    zipItemsByGlob(target, filename)
-      .then(() => {
-        action.info('Output to the actions build log ${filename}')
-        //uploadToDrive(name, filename);
-      })
-      .catch(e => {
-        actions.error('Zip failed');
-        throw e;
-      });
+//     zipItemsByGlob(target, filename)
+//       .then(() => {
+//         action.info('Output to the actions build log ${filename}')
+//         uploadToDrive(name, filename);
+//       })
+//       .catch(e => {
+//         actions.error('Zip failed');
+//         throw e;
+//       });
+
+      action.info('Output to the actions build log ${filename}')
+      uploadToDrive(name, name);
   }
 }
 
@@ -93,7 +96,7 @@ function uploadToDrive(name, path) {
     actions.info('File uploaded successfully')
   })
   .catch(e => {
-    actions.error('Upload failed');
+    actions.error('Upload failed~');
     throw e;
   });
 }

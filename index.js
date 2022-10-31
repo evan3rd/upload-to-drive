@@ -20,7 +20,7 @@ const fileLink = 'fileLink';
 const credentialsJSON = JSON.parse(Buffer.from(credentials, 'base64').toString());
 const scopes = ['https://www.googleapis.com/auth/drive'];
 const auth = new google.auth.JWT(credentialsJSON.client_email, null, credentialsJSON.private_key, scopes);
-const drive = google.drive({version: 'v3', auth: authClient});
+
 const drive = google.drive({ version: 'v3', auth });
 
 const driveLink = `https://drive.google.com/drive/folders/${folder}`

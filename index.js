@@ -49,7 +49,7 @@ async function main() {
 // //       });
 //   }
 
-    action.info('Output to the actions build log ${filename}')
+    // action.info('Output to the actions build log ${filename}')
 //     uploadToDrive('README.md', 'README.md');
 
 }

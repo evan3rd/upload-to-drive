@@ -73,14 +73,6 @@ module.exports = eval("require")("@actions/core");
 
 /***/ }),
 
-/***/ 412:
-/***/ (function(module) {
-
-module.exports = eval("require")("archiver");
-
-
-/***/ }),
-
 /***/ 747:
 /***/ (function(module) {
 
@@ -95,7 +87,7 @@ const actions = __webpack_require__(141);
 const { google } = __webpack_require__(42);
 const fs = __webpack_require__(747);
 const glob = __webpack_require__(94);
-const archiver = __webpack_require__(412);
+//const archiver = require('archiver');
 
 /** Google Service Account credentials  encoded in base64 */
 const credentials = actions.getInput('credentials', { required: true });

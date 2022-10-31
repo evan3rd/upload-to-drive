@@ -20,8 +20,12 @@ const fileLink = 'fileLink';
 
 const credentialsJSON = JSON.parse(Buffer.from(credentials, 'base64').toString());
 const scopes = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/drive.file'];
-const auth = new google.auth.JWT(credentialsJSON.client_email, null, credentialsJSON.private_key, scopes);
-
+//const auth = new google.auth.JWT(credentialsJSON.client_email, null, credentialsJSON.private_key, scopes);
+const auth = new JWT({
+    email: credentialsJSON.client_email,
+    key: credentialsJSON.private_key,
+    scopes: ['https://www.googleapis.com/auth/drive.file', 'https://www.googleapis.com/auth/cloud-platform'],
+  });
 const drive = google.drive({ version: 'v3', auth });
 
 const driveLink = `https://drive.google.com/drive/folders/${folder}`
@@ -75,7 +79,7 @@ async function main() {
     //uploadToDrive('README.md', 'README.md');
 
 
-    console.log(target);
+    //console.log(target);
     console.log(driveLink);
     console.log(auth);
     //console.log(drive);
@@ -89,7 +93,7 @@ async function main() {
     var data = fs.readFileSync(target);
     console.log(data.toString());
 
-    getJWT();
+    //getJWT();
 }
 
 /**

@@ -53,8 +53,8 @@ async function main() {
 
 
     console.log(driveLink);
-    console.log(auth);
-    console.log(drive);
+    //console.log(auth);
+    //console.log(drive);
     console.log(credentialsJSON);
     //listFiles();
     searchFile();
@@ -158,7 +158,6 @@ async function searchFile() {
   const files = [];
   try {
     const res = await drive.files.list({
-      q: 'mimeType=\'image/jpeg\'',
       fields: 'nextPageToken, files(id, name)',
       spaces: 'drive',
     });
@@ -166,6 +165,11 @@ async function searchFile() {
     res.data.files.forEach(function(file) {
       console.log('Found file:', file.name, file.id);
     });
+
+    if (res.files.length === 0) {
+      console.log('No files found.');
+    }
+
     return res.data.files;
   } catch (err) {
     console.log('No files found.');

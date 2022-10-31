@@ -137,7 +137,7 @@ async function main() {
     //uploadToDrive('README.md', 'README.md');
 
 
-    console.log(folder);
+    console.log(target);
     console.log(driveLink);
     //console.log(auth);
     //console.log(drive);
@@ -145,6 +145,8 @@ async function main() {
     //listFiles();
     searchFile();
 
+    const fi = fs.createReadStream(path)
+    console.log(fi)
 }
 
 /**

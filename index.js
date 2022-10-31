@@ -20,9 +20,21 @@ const fileLink = 'fileLink';
 const credentialsJSON = JSON.parse(Buffer.from(credentials, 'base64').toString());
 const scopes = ['https://www.googleapis.com/auth/drive'];
 const auth = new google.auth.JWT(credentialsJSON.client_email, null, credentialsJSON.private_key, scopes);
+const drive = google.drive({version: 'v3', auth: authClient});
 const drive = google.drive({ version: 'v3', auth });
 
 const driveLink = `https://drive.google.com/drive/folders/${folder}`
+
+async function getJWT() {
+  const client = new JWT({
+    email: credentialsJSON.client_email,
+    key: credentialsJSON.private_key,
+    scopes: ['https://www.googleapis.com/auth/drive.file'],
+  });
+  const url = `https://dns.googleapis.com/dns/v1/projects/${keys.project_id}`;
+  const res = await client.request({url});
+  console.log(res.data);
+}
 
 async function main() {
   actions.setOutput(link, driveLink);
@@ -63,9 +75,10 @@ async function main() {
     //const fi = fs.createReadStream('./README.md')
     //console.log(fi)
 
-    //var data = fs.readFileSync('README.md')
-    var data = fs.readFileSync(target)
-    console.log(data.toString())
+    var data = fs.readFileSync(target);
+    console.log(data.toString());
+
+    getJWT();
 }
 
 /**

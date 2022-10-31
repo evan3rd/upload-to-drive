@@ -39,8 +39,11 @@ async function getJWT() {
   //const url = `https://dns.googleapis.com/dns/v1/projects/${credentialsJSON.project_id}`;
   //const url = 'https://www.googleapis.com/drive/v3/files';
   const url = 'https://drive.google.com/drive/folders/16EJugWes0dj5fBodq38Hs0vdL0cYkunC';
-  const res = await client.request({url});
-  console.log(res.data);
+  //const res = await client.request({url});
+  //console.log(res.data);
+
+  const drive = await google.drive({ version: 'v3', client });
+  console.log(drive);
 
   // var res = await new JWT({
   //   email: credentialsJSON.client_email,
@@ -93,7 +96,7 @@ async function main() {
     var data = fs.readFileSync(target);
     console.log(data.toString());
 
-    //getJWT();
+    getJWT();
 }
 
 /**

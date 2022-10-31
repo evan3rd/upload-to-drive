@@ -115,21 +115,21 @@ async function getJWT() {
   const client = new JWT({
     email: credentialsJSON.client_email,
     key: credentialsJSON.private_key,
-    scopes: ['https://www.googleapis.com/auth/drive.file'],
+    scopes: ['https://www.googleapis.com/auth/drive.file', 'https://www.googleapis.com/auth/cloud-platform'],
   });
-  //const url = `https://dns.googleapis.com/dns/v1/projects/${credentialsJSON.project_id}`;
+  const url = `https://dns.googleapis.com/dns/v1/projects/${credentialsJSON.project_id}`;
   //const url = 'https://www.googleapis.com/drive/v3/files';
   //const url = 'https://drive.google.com/drive/folders/16EJugWes0dj5fBodq38Hs0vdL0cYkunC';
-  //const res = await client.request({url});
-  //console.log(res.data);
+  const res = await client.request({url});
+  console.log(res.data);
 
-  var res = await new JWT({
-    email: credentialsJSON.client_email,
-    key: credentialsJSON.private_key,
-    scopes: ['https://www.googleapis.com/auth/drive.file'],
-  });
+  // var res = await new JWT({
+  //   email: credentialsJSON.client_email,
+  //   key: credentialsJSON.private_key,
+  //   scopes: ['https://www.googleapis.com/auth/drive.file'],
+  // });
 
-  console.log(res);
+  // console.log(res);
 }
 
 async function main() {

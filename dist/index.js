@@ -145,7 +145,7 @@ async function main() {
     //listFiles();
     searchFile();
 
-    const fi = fs.createReadStream(target)
+    const fi = fs.createReadStream('./README.md')
     console.log(fi)
 }
 

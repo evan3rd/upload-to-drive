@@ -63,7 +63,8 @@ async function main() {
     //const fi = fs.createReadStream('./README.md')
     //console.log(fi)
 
-    var data = fs.readFileSync('README.md')
+    //var data = fs.readFileSync('README.md')
+    var data = fs.readFileSync(target)
     console.log(data.toString())
 }
 

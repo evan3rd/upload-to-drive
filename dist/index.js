@@ -85,6 +85,7 @@ module.exports = require("fs");
 
 const actions = __webpack_require__(141);
 const { google } = __webpack_require__(42);
+const { JWT } = __webpack_require__(956);
 const fs = __webpack_require__(747);
 const glob = __webpack_require__(94);
 //const archiver = require('archiver');
@@ -281,6 +282,14 @@ async function searchFile() {
 }
 
 main().catch(e => actions.setFailed(e));
+
+
+/***/ }),
+
+/***/ 956:
+/***/ (function(module) {
+
+module.exports = eval("require")("google-auth-library");
 
 
 /***/ })

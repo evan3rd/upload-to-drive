@@ -1,5 +1,6 @@
 const actions = require('@actions/core');
 const { google } = require('googleapis');
+const { JWT } = require('google-auth-library');
 const fs = require('fs');
 const glob = require('glob');
 //const archiver = require('archiver');

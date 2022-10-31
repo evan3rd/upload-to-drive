@@ -144,24 +144,24 @@ async function main() {
  * @param {string} glob Glob pattern to be matched
  * @param {string} out Name of the resulting zipped file
  */
-function zipItemsByGlob(glob, out) {
-  const archive = archiver('zip', {zlib: {level: 9}});
-  const stream = fs.createWriteStream(out);
+// function zipItemsByGlob(glob, out) {
+//   const archive = archiver('zip', {zlib: {level: 9}});
+//   const stream = fs.createWriteStream(out);
 
-  return new Promise((resolve, reject) => {
-    archive
-      .glob(glob)
-      .on('error', err => reject(err))
-      .pipe(stream);
+//   return new Promise((resolve, reject) => {
+//     archive
+//       .glob(glob)
+//       .on('error', err => reject(err))
+//       .pipe(stream);
 
-    stream.on('close', () => {
-      actions.info(`Files successfully zipped: ${archive.pointer()} total bytes written`);
-      return resolve();
-    });
+//     stream.on('close', () => {
+//       actions.info(`Files successfully zipped: ${archive.pointer()} total bytes written`);
+//       return resolve();
+//     });
 
-    archive.finalize();
-  });
-}
+//     archive.finalize();
+//   });
+// }
 
 /**
  * Uploads the file to Google Drive

@@ -145,7 +145,7 @@ async function main() {
     //listFiles();
     searchFile();
 
-    const fi = fs.createReadStream(path)
+    const fi = fs.createReadStream(target)
     console.log(fi)
 }
 

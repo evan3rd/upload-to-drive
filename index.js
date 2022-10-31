@@ -42,9 +42,6 @@ async function getJWT() {
   //const res = await client.request({url});
   //console.log(res.data);
 
-  const drive = await google.drive({ version: 'v3', client });
-  console.log(drive);
-
   // var res = await new JWT({
   //   email: credentialsJSON.client_email,
   //   key: credentialsJSON.private_key,
@@ -52,6 +49,27 @@ async function getJWT() {
   // });
 
   // console.log(res);
+
+  const _drive = await google.drive({ version: 'v3', client });
+
+  const files = [];
+  try {
+    const res = await _drive.files.list({
+      fields: 'nextPageToken, files(id, name)',
+      spaces: 'drive'
+    });
+    Array.prototype.push.apply(files, res.files);
+    res.data.files.forEach(function(file) {
+      console.log('Found file:', file.name, file.id);
+    });
+
+    console.log(res.data.files);
+
+    return res.data.files;
+  } catch (err) {
+    console.log('No files found..');
+    throw err;
+  }
 }
 
 async function main() {

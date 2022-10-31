@@ -251,7 +251,7 @@ async function searchFile() {
       console.log('Found file:', file.name, file.id);
     });
 
-    console.log(res.files.driveId);
+    console.log(res.data.files.driveId);
 
     return res.data.files;
   } catch (err) {

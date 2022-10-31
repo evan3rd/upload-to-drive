@@ -39,12 +39,12 @@ async function uploadBasic() {
 
   // Get credentials and build service
   // TODO (developer) - Use appropriate auth mechanism for your app
-  const auth = new GoogleAuth({
+  const _auth = new GoogleAuth({
     email: credentialsJSON.client_email,
     key: credentialsJSON.private_key,
     scopes: 'https://www.googleapis.com/auth/drive',
   });
-  const service = google.drive({version: 'v3', auth});
+  const service = google.drive({version: 'v3', _auth});
   const fileMetadata = {
     name: 'README.md',
   };

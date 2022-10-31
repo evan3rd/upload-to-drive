@@ -55,7 +55,7 @@ async function main() {
     console.log(driveLink);
     //console.log(auth);
     //console.log(drive);
-    console.log(credentialsJSON);
+    //console.log(credentialsJSON);
     //listFiles();
     searchFile();
 
@@ -167,8 +167,10 @@ async function searchFile() {
     });
 
     if (res.files.length === 0) {
-      console.log('No files found.');
+      console.log('No files found..');
     }
+
+    console.log(res.files.driveId);
 
     return res.data.files;
   } catch (err) {

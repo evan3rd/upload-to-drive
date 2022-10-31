@@ -2,7 +2,7 @@ const actions = require('@actions/core');
 const { google } = require('googleapis');
 const fs = require('fs');
 const glob = require('glob');
-const archiver = require('archiver');
+//const archiver = require('archiver');
 
 /** Google Service Account credentials  encoded in base64 */
 const credentials = actions.getInput('credentials', { required: true });

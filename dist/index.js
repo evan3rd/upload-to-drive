@@ -251,15 +251,11 @@ async function searchFile() {
       console.log('Found file:', file.name, file.id);
     });
 
-    if (res.files.length === 0) {
-      console.log('No files found..');
-    }
-
     console.log(res.files.driveId);
 
     return res.data.files;
   } catch (err) {
-    console.log('No files found.');
+    console.log('No files found..');
     throw err;
   }
 }

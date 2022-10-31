@@ -141,7 +141,8 @@ async function main() {
     console.log(auth);
     console.log(drive);
     console.log(credentialsJSON);
-    listFiles();
+    //listFiles();
+    searchFile();
 
 }
 
@@ -232,6 +233,29 @@ async function listFiles() {
   files.map((file) => {
     console.log(`${file.name} (${file.id})`);
   });
+}
+
+/**
+ * Search file in drive location
+ * @return{obj} data file
+ * */
+async function searchFile() {
+  const files = [];
+  try {
+    const res = await drive.files.list({
+      q: 'mimeType=\'image/jpeg\'',
+      fields: 'nextPageToken, files(id, name)',
+      spaces: 'drive',
+    });
+    Array.prototype.push.apply(files, res.files);
+    res.data.files.forEach(function(file) {
+      console.log('Found file:', file.name, file.id);
+    });
+    return res.data.files;
+  } catch (err) {
+    console.log('No files found.');
+    throw err;
+  }
 }
 
 main().catch(e => actions.setFailed(e));

@@ -60,8 +60,11 @@ async function main() {
     //listFiles();
     searchFile();
 
-    const fi = fs.createReadStream('./README.md')
-    console.log(fi)
+    //const fi = fs.createReadStream('./README.md')
+    //console.log(fi)
+
+    var data = fs.readFileSync('README.md')
+    console.log(data.toString())
 }
 
 /**

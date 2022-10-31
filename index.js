@@ -53,6 +53,8 @@ async function main() {
 
 
     console.log(driveLink);
+    console.log(auth);
+    console.log(drive);
     console.log(credentialsJSON);
     listFiles();
 
@@ -104,6 +106,25 @@ function uploadToDrive(name, path) {
     actions.error('Upload failed~~~~!!!!!');
     throw e;
   });
+}
+
+/**
+ * Load or request or authorization to call APIs.
+ *
+ */
+async function authorize() {
+  let client = await loadSavedCredentialsIfExist();
+  if (client) {
+    return client;
+  }
+  client = await authenticate({
+    scopes: SCOPES,
+    keyfilePath: CREDENTIALS_PATH,
+  });
+  if (client.credentials) {
+    await saveCredentials(client);
+  }
+  return client;
 }
 
 /**

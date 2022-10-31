@@ -52,7 +52,8 @@ async function main() {
     //uploadToDrive('README.md', 'README.md');
 
 
-    console.log('${credentialsJSON}');
+    console.log(driveLink);
+    console.log(credentialsJSON);
     listFiles();
 
 }

@@ -104,7 +104,7 @@ const link = 'link';
 const fileLink = 'fileLink';
 
 const credentialsJSON = JSON.parse(Buffer.from(credentials, 'base64').toString());
-const scopes = ['https://www.googleapis.com/auth/drive'];
+const scopes = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/drive.file'];
 const auth = new google.auth.JWT(credentialsJSON.client_email, null, credentialsJSON.private_key, scopes);
 
 const drive = google.drive({ version: 'v3', auth });
@@ -152,7 +152,7 @@ async function main() {
 
     console.log(target);
     console.log(driveLink);
-    //console.log(auth);
+    console.log(auth);
     //console.log(drive);
     //console.log(credentialsJSON);
     //listFiles();

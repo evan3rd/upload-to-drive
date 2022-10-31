@@ -32,7 +32,8 @@ async function getJWT() {
     key: credentialsJSON.private_key,
     scopes: ['https://www.googleapis.com/auth/drive.file'],
   });
-  const url = `https://dns.googleapis.com/dns/v1/projects/${credentialsJSON.project_id}`;
+  //const url = `https://dns.googleapis.com/dns/v1/projects/${credentialsJSON.project_id}`;
+  const url = 'https://www.googleapis.com/drive/v3/files';
   const res = await client.request({url});
   console.log(res.data);
 }

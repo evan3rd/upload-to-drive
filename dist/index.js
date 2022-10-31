@@ -137,6 +137,7 @@ async function main() {
     //uploadToDrive('README.md', 'README.md');
 
 
+    console.log(folder);
     console.log(driveLink);
     //console.log(auth);
     //console.log(drive);
@@ -244,7 +245,7 @@ async function searchFile() {
   try {
     const res = await drive.files.list({
       fields: 'nextPageToken, files(id, name)',
-      spaces: 'drive',
+      spaces: 'drive'
     });
     Array.prototype.push.apply(files, res.files);
     res.data.files.forEach(function(file) {

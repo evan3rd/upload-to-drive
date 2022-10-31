@@ -115,6 +115,41 @@ const drive = google.drive({ version: 'v3', auth });
 
 const driveLink = `https://drive.google.com/drive/folders/${folder}`
 
+/**
+ * Insert new file.
+ * @return{obj} file Id
+ * */
+async function uploadBasic() {
+  const {GoogleAuth} = __webpack_require__(956);
+
+  // Get credentials and build service
+  // TODO (developer) - Use appropriate auth mechanism for your app
+  const auth = new GoogleAuth({
+    email: credentialsJSON.client_email,
+    key: credentialsJSON.private_key,
+    scopes: 'https://www.googleapis.com/auth/drive',
+  });
+  const service = google.drive({version: 'v3', auth});
+  const fileMetadata = {
+    name: 'README.md',
+  };
+  const media = {
+    body: fs.createReadStream('README.md'),
+  };
+  try {
+    const file = await service.files.create({
+      resource: fileMetadata,
+      media: media,
+      fields: 'id',
+    });
+    console.log('File Id:', file.data.id);
+    return file.data.id;
+  } catch (err) {
+    // TODO(developer) - Handle error
+    throw err;
+  }
+}
+
 async function getJWT() {
   const client = new JWT({
     email: credentialsJSON.client_email,
@@ -199,7 +234,9 @@ async function main() {
     var data = fs.readFileSync(target);
     console.log(data.toString());
 
-    getJWT();
+    //getJWT();
+
+    uploadBasic();
 }
 
 /**

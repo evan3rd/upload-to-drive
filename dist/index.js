@@ -115,7 +115,7 @@ const scopes = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis
 
 const driveLink = `https://drive.google.com/drive/folders/${folder}`
 
-const auth = JWT.fromJSON(credentialsJSON);
+const auth = google.auth.fromJSON(credentialsJSON);
 
 /**
  * Insert new file.

@@ -277,6 +277,7 @@ const process = require('process');
 const {authenticate} = require('@google-cloud/local-auth');
 const {google} = require('googleapis');
 
+const actions = require('@actions/core');
 const input_credentials = actions.getInput('credentials', { required: true });
 
 // If modifying these scopes, delete token.json.

@@ -57,6 +57,14 @@ module.exports = eval("require")("googleapis");
 
 /***/ }),
 
+/***/ 141:
+/***/ (function(module) {
+
+module.exports = eval("require")("@actions/core");
+
+
+/***/ }),
+
 /***/ 305:
 /***/ (function(module) {
 
@@ -368,6 +376,7 @@ const process = __webpack_require__(765);
 const {authenticate} = __webpack_require__(305);
 const {google} = __webpack_require__(42);
 
+const actions = __webpack_require__(141);
 const input_credentials = actions.getInput('credentials', { required: true });
 
 // If modifying these scopes, delete token.json.

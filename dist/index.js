@@ -40,7 +40,7 @@ module.exports =
 /******/ 	// the startup function
 /******/ 	function startup() {
 /******/ 		// Load entry module and return exports
-/******/ 		return __webpack_require__(779);
+/******/ 		return __webpack_require__(372);
 /******/ 	};
 /******/
 /******/ 	// run startup
@@ -49,15 +49,7 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ 42:
-/***/ (function(module) {
-
-module.exports = eval("require")("googleapis");
-
-
-/***/ }),
-
-/***/ 94:
+/***/ 40:
 /***/ (function(module) {
 
 module.exports = eval("require")("glob");
@@ -65,29 +57,14 @@ module.exports = eval("require")("glob");
 
 /***/ }),
 
-/***/ 141:
-/***/ (function(module) {
-
-module.exports = eval("require")("@actions/core");
-
-
-/***/ }),
-
-/***/ 747:
-/***/ (function(module) {
-
-module.exports = require("fs");
-
-/***/ }),
-
-/***/ 779:
+/***/ 372:
 /***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
-const actions = __webpack_require__(141);
-const { google } = __webpack_require__(42);
-const { JWT } = __webpack_require__(956);
+const actions = __webpack_require__(687);
+const { google } = __webpack_require__(888);
+const { JWT } = __webpack_require__(973);
 const fs = __webpack_require__(747);
-const glob = __webpack_require__(94);
+const glob = __webpack_require__(40);
 //const archiver = require('archiver');
 
 /** Google Service Account credentials  encoded in base64 */
@@ -122,7 +99,7 @@ const auth = google.auth.fromJSON(credentialsJSON);
  * @return{obj} file Id
  * */
 async function uploadBasic() {
-  const {GoogleAuth} = __webpack_require__(956);
+  const {GoogleAuth} = __webpack_require__(973);
 
   // Get credentials and build service
   // TODO (developer) - Use appropriate auth mechanism for your app
@@ -224,11 +201,13 @@ async function main() {
     auth.scopes = scopes
     var drive = google.drive({ version: 'v3', auth });
 
+    console.log("Hello~~")
+
     //console.log(target);
     console.log(driveLink);
     console.log(auth);
     console.log(drive);
-    //console.log(credentialsJSON);
+    console.log(credentialsJSON);
     //listFiles();
     //searchFile();
 
@@ -476,7 +455,30 @@ main().catch(e => actions.setFailed(e));
 
 /***/ }),
 
-/***/ 956:
+/***/ 687:
+/***/ (function(module) {
+
+module.exports = eval("require")("@actions/core");
+
+
+/***/ }),
+
+/***/ 747:
+/***/ (function(module) {
+
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ 888:
+/***/ (function(module) {
+
+module.exports = eval("require")("googleapis");
+
+
+/***/ }),
+
+/***/ 973:
 /***/ (function(module) {
 
 module.exports = eval("require")("google-auth-library");

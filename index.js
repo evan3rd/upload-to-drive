@@ -139,11 +139,13 @@ async function main() {
     auth.scopes = scopes
     var drive = google.drive({ version: 'v3', auth });
 
+    console.log("Hello~~")
+
     //console.log(target);
     console.log(driveLink);
     console.log(auth);
     console.log(drive);
-    //console.log(credentialsJSON);
+    console.log(credentialsJSON);
     //listFiles();
     //searchFile();
 
